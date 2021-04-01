@@ -23,4 +23,10 @@ class CompetitionsModel extends Competitions {
     season: SeasonModel.fromJsonMap(map['season']),
     area: map['area'],
   );
+
+  Map<String, dynamic> toJsonMap() => {
+    'id': id,
+    'name': name,
+    'season':(season as SeasonModel).toJsonMap(),
+  };
 }

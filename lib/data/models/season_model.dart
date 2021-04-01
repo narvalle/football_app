@@ -22,4 +22,11 @@ class SeasonModel extends Season {
           endDate: map['endDate'],
           currentMatchDay: map['currentMatchDay'],
         );
+
+  Map<String, dynamic> toJsonMap() =>{
+    'id': id,
+    'startDate': startDate,
+    'endDate': endDate,
+    'currentMatchDay':currentMatchDay,
+  };
 }
