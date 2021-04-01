@@ -1,3 +1,5 @@
 {
-    "base_url":"https://jsonplaceholder.typicode.com/"
+    "base_url":"http://api.football-data.org/v2/",
+    "toke_name": "X-Auth-Token",
+    "token": "c84b5375d22c4285a9dbc72ff50b5cf4"
 }
