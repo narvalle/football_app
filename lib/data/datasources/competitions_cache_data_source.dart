@@ -9,7 +9,9 @@ import '../../domain/entities/competitions.dart';
 abstract class CompetitionsCacheDataSource {
   Future<List<Competitions>> getCacheCompetitions();
 
-  Future<void> cacheCompetition(List<Competitions> competitions);
+  Future<bool> cacheCompetition(List<Competitions> competitions);
+
+  Future<bool> isCacheCompetitionsExist();
 }
 
 const _CACHE_COMPETITIONS_KEY = 'competitions';
@@ -47,4 +49,9 @@ class CompetitionsCacheDataSourceImpl implements CompetitionsCacheDataSource {
       throw CacheException();
     }
   }
+
+  @override
+  Future<bool> isCacheCompetitionsExist() => Future<bool>.value(
+        sharedPreferences.containsKey(_CACHE_COMPETITIONS_KEY),
+      );
 }
