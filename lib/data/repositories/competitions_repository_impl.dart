@@ -49,4 +49,16 @@ class CompetitionsRepositoryImpl implements CompetitionsRepository {
       return Left(CacheFailure());
     }
   }
+
+  @override
+  Future<Either<Failure, bool>> setCacheCompetitions(
+      List<Competitions> competitions) async {
+    try {
+      return Right(
+        await cache.cacheCompetition(competitions),
+      );
+    } on CacheException {
+      return Left(CacheFailure());
+    }
+  }
 }
